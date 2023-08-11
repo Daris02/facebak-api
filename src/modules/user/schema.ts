@@ -13,6 +13,12 @@ export const createUserDto = z.object({
   confirmPassword: z.string().min(8),
 });
 
+export const getAuthUser = z.object({
+  ...commonFields,
+  email: z.string().email(),
+  password: z.string(),
+});
+
 export const updateUserDto = z.object({
   ...commonFields,
   email: z.string().email(),
@@ -23,8 +29,10 @@ export const updateUserDto = z.object({
 
 export type CreateUserDto = z.infer<typeof createUserDto>;
 export type UpdateUserDto = z.infer<typeof updateUserDto>;
+export type GetAuthUser = z.infer<typeof getAuthUser>;
 
 export const User = {
   createUserDto,
   updateUserDto,
+  getAuthUser,
 };

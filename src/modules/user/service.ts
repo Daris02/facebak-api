@@ -20,6 +20,20 @@ export const getUserById = async (uid: string) => {
   return user;
 };
 
+export const getUserByEmalAndPassword = async (email: string, password: string) => {  
+  const user = await prisma.user.findUnique({
+    where: {
+      email: email,
+      password: password
+    },
+  });
+
+  if (!user) {
+    throw notFoundError("User", "email", email);
+  }
+  return user;
+};
+
 export const createUser = async (data: CreateUserDto) => {
   const {password, confirmPassword, email, ...rest} = data;
 
