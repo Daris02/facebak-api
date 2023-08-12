@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import cors from "@fastify/cors";
 import {commentRoutes} from "./modules/comment";
 import {postRoutes} from "./modules/post";
 import {schemas} from "./modules/shared";
@@ -18,10 +19,7 @@ export const buildServer = (opts: Record<string, unknown> = {}) => {
     server.addSchema(schema);
   });
 
-  server.register(fastifyCors, {
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  });
+  server.register(cors);
 
   // do not want to use prefix here
   server.register(commentRoutes);
