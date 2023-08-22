@@ -18,21 +18,13 @@ npm install
 
 ##### # update the .env according to your credentials
 
-```
-<<<<<<< HEAD
-DATABASE_URL="postgresql://postgres:{{name}}@localhost:5432/{{database}}?schema=public"
-```
-
-- `{{name}}` your postgreSql username, _postgres_ by default on windows
-- `{{database}}` name of your db 
-=======
+```sh
 DATABASE_URL="postgresql://{{name}}:{{password}}@localhost:5432/{{database}}?schema=public"
 ```
 
 - `{{name}}` your postgres username, _postgres_ by default on windows
 - `{{password}}` your postgres password
 - `{{database}}` db name
->>>>>>> upstream/main
 
 ##### # Push the prisma state to the provided database
 
