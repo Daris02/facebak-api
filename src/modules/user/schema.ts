@@ -1,4 +1,5 @@
 import z from "zod";
+import {loginUserHandler} from "./controller";
 
 export const commonFields = {
   bio: z.string().optional(),
@@ -27,12 +28,18 @@ export const updateUserDto = z.object({
   confirmNewPassword: z.string().min(8).optional(),
 });
 
+export const loginUserDto = z.object({
+  username: z.string(),
+  password: z.string(),
+  email: z.string().email(),
+});
+
 export type CreateUserDto = z.infer<typeof createUserDto>;
 export type UpdateUserDto = z.infer<typeof updateUserDto>;
-export type GetAuthUser = z.infer<typeof getAuthUser>;
+export type LoginUserDto = z.infer<typeof loginUserDto>;
 
 export const User = {
   createUserDto,
   updateUserDto,
-  getAuthUser,
+  loginUserDto,
 };

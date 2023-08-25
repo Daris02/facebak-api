@@ -23,11 +23,10 @@ export const getUserById = async (uid: string) => {
   return omit(user, ["password"]);
 };
 
-export const getUserByEmalAndPassword = async (email: string, password: string) => {  
+export const getUserByEmail = async (email: string) => {
   const user = await prisma.user.findUnique({
     where: {
-      email: email,
-      password: password
+      email,
     },
   });
 
