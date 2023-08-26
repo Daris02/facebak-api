@@ -19,14 +19,6 @@ export const getUserByIdHandler = async (
   return await getUserById(req.params.uid);
 };
 
-export const getUserByEmalAndPasswordHandler = async (
-  req: FastifyRequest<{
-    Body: GetAuthUser;
-  }>
-) => {
-  return await getUserByEmalAndPassword(req.body.email, req.body.password);
-};
-
 export const createUserHandler = async (
   req: FastifyRequest<{
     Body: CreateUserDto;
