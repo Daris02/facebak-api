@@ -5,7 +5,6 @@ import {
   getUsersHandler,
   loginUserHandler,
   updateUserHandler,
-  getUserByEmalAndPasswordHandler,
 } from "./controller";
 import {$ref} from "../shared";
 
@@ -35,16 +34,6 @@ export const userRoutes: FastifyPluginCallback = (server, _, done) => {
     },
     getUserByIdHandler
   );
-
-  server.post(
-    "/users/auth", 
-    {
-      schema : {
-        body: $ref("getAuthUser"),
-      },
-    },
-    getUserByEmalAndPasswordHandler
-    );
 
   server.put(
     "/users",
